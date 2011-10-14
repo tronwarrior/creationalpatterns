@@ -1,5 +1,6 @@
 package creationalpatterns;
 
+import java.util.ArrayList;
 /**
  * @author Tony
  * @version 1.0
@@ -16,6 +17,12 @@ public interface MenuItem {
 	public Category getCategory();
 
 	/**
+	 *
+	 * @param ingredient
+	 */
+	public String getName();
+
+        /**
 	 * 
 	 * @param ingredient
 	 */
@@ -27,6 +34,6 @@ public interface MenuItem {
 	 */
 	public void removeIngredient(Ingredient ingredient);
 
-	public abstract Ingredient[] getIngredients();
+	public abstract ArrayList<Ingredient> getIngredients();
 
 }

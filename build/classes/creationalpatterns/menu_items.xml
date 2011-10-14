@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot name="menu">
+<menu_item name="Bacon Sandwich">
+<category name="Sandwich">Sandwich</category>
+<ingredients>
+<ingredient name="Bread">Bread</ingredient>
+<ingredient name="Danish Back Bacon">Danish Back Bacon</ingredient>
+<ingredient name="HP Sauce">HP Sauce</ingredient>
+</ingredients>
+</menu_item>
+<menu_item name="Ham and Cheese Sandwich">
+<category name="Sandwich">Sandwich</category>
+<ingredients>
+<ingredient name="Bread">Bread</ingredient>
+<ingredient name="Cheddar Cheese">Cheddar Cheese</ingredient>
+<ingredient name="English Mustard">English Mustard</ingredient>
+<ingredient name="Ham">Ham</ingredient>
+<ingredient name="Bread">Bread</ingredient>
+</ingredients>
+</menu_item>
+<menu_item name="Ham and Tomato Sandwich">
+<category name="Sandwich">Sandwich</category>
+<ingredients>
+<ingredient name="Ham">Ham</ingredient>
+<ingredient name="Tomato">Tomato</ingredient>
+</ingredients>
+</menu_item>
+<menu_item name="Ploughmans">
+<category name="Salad"></category>
+<ingredients>
+<ingredient name="Branston Pickle">Branston Pickle</ingredient>
+<ingredient name="Bread">Bread</ingredient>
+<ingredient name="Cheese">Cheese</ingredient>
+<ingredient name="Lettuce">Lettuce</ingredient>
+<ingredient name="Pork Pie">Pork Pie</ingredient>
+</ingredients>
+</menu_item>
+<menu_item name="Sheppards Pie">
+<category name="Pie"></category>
+<ingredients>
+<ingredient name="Carrots">Carrots</ingredient>
+<ingredient name="Gravy">Gravy</ingredient>
+<ingredient name="Ground Beef">Ground Beef</ingredient>
+<ingredient name="Mashed Potatoes">Mashed Potatoes</ingredient>
+<ingredient name="Onion">Onion</ingredient>
+<ingredient name="Peas">Peas</ingredient>
+</ingredients>  
+</menu_item>
+<menu_item name="Steak and Kidney Pie">
+<category name="Pie"></category>
+<ingredients>
+<ingredient name="Flakey Pastry">Flakey Pastry</ingredient>
+<ingredient name="Gravy">Gravy</ingredient>
+<ingredient name="Kidney">Kidney</ingredient>
+<ingredient name="Steak">Steak</ingredient>
+<ingredient name="Flakey Pastry">Flakey Pastry</ingredient>
+</ingredients>
+</menu_item>
+<menu_item name="Steak and Mushroom">
+<category name="Pie"></category>
+<ingredients>
+<ingredient name="Gravy">Gravy</ingredient>
+<ingredient name="Mushroom">Mushroom</ingredient>
+<ingredient name="">Steak</ingredient>
+</ingredients>
+</menu_item>
+<menu_item name="Tomato Salad">
+<category name="Salad"></category>
+<ingredients>
+<ingredient name="Oil">Oil</ingredient>
+<ingredient name="Tomato">Tomato</ingredient>
+<ingredient name="Vinegar">Vinegar</ingredient>
+</ingredients>
+</menu_item>
+</dataroot>

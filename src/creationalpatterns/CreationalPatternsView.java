@@ -15,12 +15,18 @@ import javax.swing.Timer;
 import javax.swing.Icon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 
 /**
  * The application's main frame.
  */
 public class CreationalPatternsView extends FrameView {
 
+    MenuFactory _menuFactory = null;
+    Menu _menu = null;
+    
     public CreationalPatternsView(SingleFrameApplication app) {
         super(app);
 
@@ -79,6 +85,43 @@ public class CreationalPatternsView extends FrameView {
                 }
             }
         });
+
+        // Create the menu factory
+        _menuFactory = CMenuFactory.CreateMenuFactory();
+
+        // Retrieve the menu
+        _menu = _menuFactory.getMenu();
+        
+        // Display the menu
+        PrintMenu();
+    }
+
+    private void PrintMenu() {
+        String s = new String();
+        _menu = _menuFactory.getMenu();
+        ArrayList<MenuItem> menuitems = _menu.getMenuItems();
+
+        Iterator iter = menuitems.iterator();
+
+        while(iter.hasNext()) {
+            MenuItem mi = (MenuItem)iter.next();
+            s += ("Menu item: " + mi.getName() + "\n");
+            s += ("\tCategory: " + mi.getCategory().getName() + "\n");
+
+            Iterator i = mi.getIngredients().iterator();
+            s += ("\tIngredients: ");
+
+            while(i.hasNext()) {
+                Ingredient in = (Ingredient)i.next();
+
+                s += (in.getName());
+                s += (i.hasNext() ? ", " : "\n");
+            }
+
+        }
+
+        txtMenuListing.setText(s);
+
     }
 
     @Action
@@ -101,6 +144,8 @@ public class CreationalPatternsView extends FrameView {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtMenuListing = new javax.swing.JTextArea();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
@@ -114,15 +159,28 @@ public class CreationalPatternsView extends FrameView {
 
         mainPanel.setName("mainPanel"); // NOI18N
 
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        txtMenuListing.setColumns(20);
+        txtMenuListing.setRows(5);
+        txtMenuListing.setName("txtMenuListing"); // NOI18N
+        jScrollPane1.setViewportView(txtMenuListing);
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 592, Short.MAX_VALUE)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 359, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         menuBar.setName("menuBar"); // NOI18N
@@ -162,11 +220,11 @@ public class CreationalPatternsView extends FrameView {
         statusPanel.setLayout(statusPanelLayout);
         statusPanelLayout.setHorizontalGroup(
             statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
+            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
             .addGroup(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 422, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 615, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
@@ -190,12 +248,14 @@ public class CreationalPatternsView extends FrameView {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JProgressBar progressBar;
     private javax.swing.JLabel statusAnimationLabel;
     private javax.swing.JLabel statusMessageLabel;
     private javax.swing.JPanel statusPanel;
+    private javax.swing.JTextArea txtMenuListing;
     // End of variables declaration//GEN-END:variables
 
     private final Timer messageTimer;

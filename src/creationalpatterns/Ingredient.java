@@ -7,4 +7,6 @@ package creationalpatterns;
  */
 public interface Ingredient {
 
+    public abstract String getName();
+
 }

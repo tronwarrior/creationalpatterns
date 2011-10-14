@@ -7,13 +7,13 @@ package creationalpatterns;
  * @version 1.0
  * @created 08-Oct-2011 4:24:07 PM
  */
-public class CMenuFactory implements MenuFactory {
+public class CMenuFactory implements MenuFactory  {
 
-    private static XMLMenu _uniqueInstance;
+    private static CMenuFactory _theFactory = null;
+    private static Menu _uniqueInstance = null;
     private static Integer _refCount = 0;
 
-    public CMenuFactory(){
-
+    private CMenuFactory(){
     }
 
     @SuppressWarnings("FinalizeDeclaration")
@@ -24,16 +24,25 @@ public class CMenuFactory implements MenuFactory {
 
     }
 
-    public Menu getMenu(){
-            return null;
+    public static MenuFactory CreateMenuFactory() {
+        if( _theFactory == null) {
+            _theFactory = new CMenuFactory();
+        }
+
+        return _theFactory;
     }
 
-    private static XMLMenu Instance(){
+    public Menu getMenu(){
+        return Instance();
+    }
+
+    private static Menu Instance(){
         if( _uniqueInstance == null) {
-            _uniqueInstance = new XMLMenu();
+            MenuCreator mc = new CMenuCreator();
+            _uniqueInstance = mc.CreateMenu();
         }
+
         _refCount++;
         return _uniqueInstance;
     }
-
 }

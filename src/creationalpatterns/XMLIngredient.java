@@ -5,18 +5,20 @@ package creationalpatterns;
  * @version 1.0
  * @created 08-Oct-2011 4:02:01 PM
  */
-public class XMLIngredient implements Ingredient, MenuItemElement {
+public class XMLIngredient implements Ingredient {
 
-	public XMLIngredient(){
+    String _name;
 
-	}
+    public XMLIngredient(String name){
+        _name = name;
+    }
 
-	public void finalize() throws Throwable {
+    public void finalize() throws Throwable {
 
-	}
+    }
 
-	public String getName(){
-		return "";
-	}
+    public String getName(){
+        return _name;
+    }
 
 }

@@ -7,4 +7,6 @@ package creationalpatterns;
  */
 public interface Category {
 
+    public abstract String getName();
+
 }

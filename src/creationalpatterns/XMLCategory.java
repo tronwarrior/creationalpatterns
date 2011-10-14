@@ -5,18 +5,20 @@ package creationalpatterns;
  * @version 1.0
  * @created 08-Oct-2011 4:01:59 PM
  */
-public class XMLCategory implements Category, MenuItemElement {
+public class XMLCategory implements Category {
 
-	public XMLCategory(){
+    private String _name;
+    
+    public XMLCategory(String name){
+        _name = name;
+    }
 
-	}
+    public void finalize() throws Throwable {
 
-	public void finalize() throws Throwable {
+    }
 
-	}
-
-	public String getName(){
-		return "";
-	}
+    public String getName(){
+        return _name;
+    }
 
 }

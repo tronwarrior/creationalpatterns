@@ -1,57 +1,60 @@
 package creationalpatterns;
 
+import java.util.ArrayList;
 /**
  * @author Tony
  * @version 1.0
  * @created 08-Oct-2011 4:02:03 PM
  */
-public class XMLMenuItem implements MenuItemElement, MenuItem {
+public class XMLMenuItem implements MenuItem {
 
-	public XMLIngredient m_XMLIngredient;
-	public XMLCategory m_XMLCategory;
+    private String _name;
+    private XMLCategory _category;
+    private ArrayList<Ingredient> _ingredients;
 
-	public XMLMenuItem(){
+    public XMLMenuItem(String name){
+        _name = name;
+        _ingredients = new ArrayList<Ingredient>();
+    }
 
-	}
+    public void finalize() throws Throwable {
 
-	public void finalize() throws Throwable {
+    }
 
-	}
+    public String getName(){
+        return _name;
+    }
 
-	public String getName(){
-		return "";
-	}
+    /**
+     *
+     * @param category
+     */
+    public void setCategory(Category category){
+        _category = (XMLCategory)category;
+    }
 
-	/**
-	 * 
-	 * @param category
-	 */
-	public void setCategory(Category category){
+    public Category getCategory(){
+        return _category;
+    }
 
-	}
+    /**
+     *
+     * @param ingredient
+     */
+    public void setIngredient(Ingredient ingredient){
+        _ingredients.add(ingredient);
+    }
 
-	public Category getCategory(){
-		return null;
-	}
+    /**
+     *
+     * @param ingredient
+     */
+    public void removeIngredient(Ingredient ingredient){
+        _ingredients.remove(ingredient);
+    }
 
-	/**
-	 * 
-	 * @param ingredient
-	 */
-	public void setIngredient(Ingredient ingredient){
-
-	}
-
-	/**
-	 * 
-	 * @param ingredient
-	 */
-	public void removeIngredient(Ingredient ingredient){
-
-	}
-
-	public Ingredient[] getIngredients(){
-		return null;
-	}
+    public ArrayList<Ingredient> getIngredients(){
+        return _ingredients;
+    }
 
 }

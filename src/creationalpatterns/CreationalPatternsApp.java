@@ -12,6 +12,7 @@ import org.jdesktop.application.SingleFrameApplication;
  */
 public class CreationalPatternsApp extends SingleFrameApplication {
 
+    
     /**
      * At startup create and show the main frame of the application.
      */
